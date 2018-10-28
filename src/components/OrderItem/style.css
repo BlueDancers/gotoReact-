@@ -1,0 +1,75 @@
+.orderItem {
+    padding: 11px 10px 11px  15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.orderItem_left {
+    display: flex;
+}
+.orderItem__picContainer {
+    padding-right: 10px;
+    display: inline-block;
+
+}
+.orderItem__pic {
+    width: 90px;
+    height: 90px;
+}
+.orderItem_content {
+    display: inline-block;
+    margin-left: 15px;
+}
+.orderItem__product {
+    max-width: 237px;
+    font-size: 17px;
+    font-weight: 700;
+    color: #111;
+    padding-top: 6px;
+    padding-right: 18px;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.orderItem__stop {
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 13px;
+    color: #777;
+    padding-top: 9px;
+    padding-bottom: 13px;
+}
+.orderItem__detail {
+    display: flex;
+    justify-content: space-between;
+    height: 22px;
+    line-height: 22px;
+    padding-right: 4px;
+}
+.orderItem__price {
+    font-size: 13px;
+    color: #777;
+    vertical-align: 1px;
+    margin-left: 10px;
+}
+.orderItem__price::before {
+    content: "\A5";
+    margin-right: 1px;
+}
+.orderItem__btn {
+    width: 80px;
+    height: 22px;
+    text-align: center;
+    color: #fff;
+    border: 0;
+    font-size: 14px;
+}
+.orderItem__btn--red {
+    background-color: #e9203d;
+}
+.orderItem__btn--grey {
+    background-color: #999;
+}
