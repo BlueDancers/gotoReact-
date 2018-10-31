@@ -1,22 +1,37 @@
-import React, { Component } from 'react'
-import OrderItem from '../OrderItem';
-
-const data = {
-    id: 1,
-    name: '百香果(冷饮)1扎',
-    shop: '院落创意菜',
-    picture: require('../../img/task1.png'),
-    product: 19.9,
-    idCommented: true
-  }
-
+import React, { Component } from "react";
+import OrderItem from "../OrderItem";
 
 export default class index extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      data: []
+    }
+  }
+  componentDidMount() {
+    fetch("/mock/order.json").then(res => {
+      if (res.ok) {
+        console.log(res);
+        res
+          .json()
+          .then(data => {
+            console.log(data);
+            this.setState({
+              data
+            })
+          })
+      }
+    });
+  }
   render() {
     return (
       <div>
-        <OrderItem data={data}></OrderItem>
+        {
+          this.state.data.map(e => { // 一定要return 因为这个是js 第一要加key值
+            return <OrderItem key={e.id} data={e} />
+          })
+        }
       </div>
-    )
+    );
   }
 }

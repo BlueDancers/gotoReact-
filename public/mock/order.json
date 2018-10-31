@@ -1,0 +1,33 @@
+[{
+        "id": 1,
+        "name": "百香果(冷饮)1扎",
+        "shop": "院落创意菜",
+        "picture": "../img/task1.png",
+        "product": 19.9,
+        "idCommented": true
+    },
+    {
+        "id": 2,
+        "name": "肥牛石锅拌饭",
+        "shop": "正一味",
+        "picture": "../img/task3.png",
+        "product": 29.9,
+        "idCommented": false
+    },
+    {
+        "id": 3,
+        "name": "冻酸奶(小杯)",
+        "shop": "Salud冻酸奶",
+        "picture": "../img/task4.png",
+        "product": 39.9,
+        "idCommented": false
+    },
+    {
+        "id": 4,
+        "name": "吉芝烧鱼",
+        "shop": "吉野家",
+        "picture": "../img/task5.png",
+        "product": 49.9,
+        "idCommented": false
+    }
+]
