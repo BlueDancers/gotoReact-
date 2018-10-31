@@ -73,3 +73,19 @@
 .orderItem__btn--grey {
     background-color: #999;
 }
+
+.orderItem__commentContainer {
+
+}
+.orderItem__commentContainer div {
+    display: flex;
+    margin-left: 10px;
+}
+
+
+.orderItem_star--light {
+    color: #e9203d;
+}
+.orderItem__stars {
+ color: #777;     
+} 
