@@ -1,3 +1,4 @@
+import Test from './test';
 import React, { Component } from "react";
 const Fragment = React.Fragment; // 类似小程序block容器的东西
 
@@ -28,6 +29,7 @@ export default class TodoList extends Component {
             })
           }
         </ul>
+        <Test content={this.state.inputValue}></Test>
       </Fragment>
     );
   }
