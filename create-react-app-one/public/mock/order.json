@@ -4,7 +4,7 @@
         "shop": "院落创意菜",
         "picture": "../img/task1.png",
         "product": 19.9,
-        "idCommented": true
+        "ifCommented": true
     },
     {
         "id": 2,
@@ -12,7 +12,7 @@
         "shop": "正一味",
         "picture": "../img/task3.png",
         "product": 29.9,
-        "idCommented": false
+        "ifCommented": false
     },
     {
         "id": 3,
@@ -20,7 +20,7 @@
         "shop": "Salud冻酸奶",
         "picture": "../img/task4.png",
         "product": 39.9,
-        "idCommented": false
+        "ifCommented": false
     },
     {
         "id": 4,
@@ -28,6 +28,6 @@
         "shop": "吉野家",
         "picture": "../img/task5.png",
         "product": 49.9,
-        "idCommented": false
+        "ifCommented": false
     }
 ]
