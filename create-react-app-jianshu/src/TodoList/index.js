@@ -1,5 +1,6 @@
-import Test from './test';
+import Test from "./test";
 import React, { Component } from "react";
+import axios from 'axios';
 const Fragment = React.Fragment; // 类似小程序block容器的东西
 
 export default class TodoList extends Component {
@@ -11,27 +12,46 @@ export default class TodoList extends Component {
       list: ["学习Vue", "学习React"]
     };
   }
-  componentWillMount () {
-    console.log('componentWillMount  ','即将被挂载到页面的时候执行');
+  componentWillMount() {
+    console.log("componentWillMount  ", "即将被挂载到页面的时候执行");
   }
-  componentDidMount () {
-    console.log('componentDidMount  ','被挂载完毕之后执行');
+  componentDidMount() {
+    console.log("componentDidMount  ", "被挂载完毕之后执行");
+    axios.get('/api/todolist')
+    .then((res) => {
+      console.log(res);
+      this.setState(() => ({
+        list: [...res.data]
+      }))
+    })
+    .catch(() => {
+      console.log('失败');
+    })
   }
-  shouldComponentUpdate () {
+  shouldComponentUpdate() {
     //shouldComponentUpdate?? 组件需要被更新吗?
-    console.log('shouldComponentUpdate  ','你的组件需要被更新吗? 我返回true,我需要被更新');
-    return true
+    console.log(
+      "shouldComponentUpdate  ",
+      "你的组件需要被更新吗? 我返回true,我需要被更新"
+    );
+    // if () {
+
+    // }
+    return true;
   }
-  componentWillUpdate () {
-    console.log('componentWillUpdate  ','组件被更新之前会自动执行,但是在 shouldComponentUpdate 之后执行 如果 shouldComponentUpdate 返回false 将不会被执行');
+  componentWillUpdate() {
+    console.log(
+      "componentWillUpdate  ",
+      "组件被更新之前会自动执行,但是在 shouldComponentUpdate 之后执行 如果 shouldComponentUpdate 返回false 将不会被执行"
+    );
   }
-  componentDidUpdate () {
-    console.log('componentDidUpdate  ', '组件已经更新完成');
+  componentDidUpdate() {
+    console.log("componentDidUpdate  ", "组件已经更新完成");
   }
 
   render() {
-    console.log('render  执行');
-    
+    console.log("render  执行");
+
     return (
       <Fragment>
         <div>
@@ -62,7 +82,8 @@ export default class TodoList extends Component {
             );
           })}
         </ul>
-        <Test content={this.state.inputValue}></Test>
+        {/* 这里有一个优化的问题,因为父组件的render函数执行 会带着子组件进行很多无意义的渲染,这里可以使用shouldComponentUpdate进行优化 */}
+        <Test content={this.state.inputValue} />
       </Fragment>
     );
   }

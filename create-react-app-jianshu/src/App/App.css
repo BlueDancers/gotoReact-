@@ -1,0 +1,26 @@
+.fade-enter,.fade-appear {
+  /* 入场动画执行的第一时刻  */
+  opacity: 0;
+}
+.fade-enter-active,.fade-appear-active {
+  /* 动画过渡中..... */
+  opacity: 1;
+  transition: all 1s;
+}
+.fade-enter-done {
+  /* 动画完成后*/
+  opacity: 1;
+}
+.fade-exit {
+  /* 出场动画执行的第一时刻 */
+  opacity: 1;
+}
+.fade-exit-active {
+  /* 动画过渡中..... */
+  opacity: 0;
+  transition: all 1s;
+}
+.fade-exit-done {
+   /* 动画完成后*/
+  opacity: 0;
+}
