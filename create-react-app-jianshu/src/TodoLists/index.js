@@ -1,55 +1,51 @@
 import React, { Component } from "react";
 import "antd/dist/antd.css";
-import { Input, Button, List } from "antd";
-import store from '../store/index'
-import actionCreators from '../store/actionCreators';
+import Todolistui from "./components/todolistUI";
+import store from "../store/index";
+import actionCreators from "../store/actionCreators";
+
 export default class index extends Component {
-  constructor (props) {
-    super(props)
-    this.state = store.getState()
-    console.log(this.state);
-    this.updateInputChange = this.updateInputChange.bind(this)
-    this.handStorechange = this.handStorechange.bind(this)
-    this.bindclick = this.bindclick.bind(this)
-    store.subscribe(this.handStorechange) // 订阅state的改变
-    
+  constructor(props) {
+    super(props);
+    this.state = store.getState();
+    this.updateInputChange = this.updateInputChange.bind(this);
+    this.handStorechange = this.handStorechange.bind(this);
+    this.bindclick = this.bindclick.bind(this);
+    this.deleteList = this.deleteList.bind(this)
+    store.subscribe(this.handStorechange); // 订阅state的改变
   }
+
   render() {
-    return (
-      <div style={{ display: 'flex',justifyContent: 'center',flexWrap: 'wrap',marginTop:10}}>
-        <div>
-          <Input
-            placeholder="todo Input"
-            style={{ width: 225, marginRight: 10 }}
-            value={this.state.inputValue}
-            onChange={this.updateInputChange}
-          />
-          <Button type="primary" onClick={this.bindclick}>提交</Button>
-        </div>
-        <List
-          style={{ width: 300, marginTop: 10 }}
-          bordered
-          dataSource={this.state.list}
-          renderItem={(item,index) => <List.Item onClick={this.deleteList.bind(this,index)}>{item}</List.Item>}
-        />
-      </div>
-    );
+    return <Todolistui
+      inputValue={this.state.inputValue}
+      list={this.state.list}
+      updateInputChange={this.updateInputChange}
+      bindclick={this.bindclick}
+      deleteList={this.deleteList}
+    />;
   }
+
+  componentDidMount () {
+    let action = actionCreators.getTodoList()
+    store.dispatch(action)
+  }
+
   updateInputChange(e) {
-    const action = actionCreators.getInputChangeAction(e.target.value)
-    store.dispatch(action)
+    const action = actionCreators.getInputChangeAction(e.target.value);
+    store.dispatch(action); // 当发送给store的时候 action会被自动执行
   }
-  handStorechange () {
-    this.setState(
-      store.getState()
-    ) 
+  
+  handStorechange() {
+    this.setState(store.getState());
   }
-  bindclick () {
-    const action = actionCreators.getAddItemAction()
-    store.dispatch(action)
+  
+  bindclick() {
+    const action = actionCreators.getAddItemAction();
+    store.dispatch(action);
   }
-  deleteList (index) {
-    const action = actionCreators.getDeleteListAction(index)
-    store.dispatch(action)
+  
+  deleteList(index) {
+    const action = actionCreators.getDeleteListAction(index);
+    store.dispatch(action);
   }
 }
