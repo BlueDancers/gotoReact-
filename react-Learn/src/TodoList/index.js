@@ -1,6 +1,5 @@
 import Test from "./test";
 import React, { Component } from "react";
-import axios from 'axios';
 const Fragment = React.Fragment; // 类似小程序block容器的东西
 
 export default class TodoList extends Component {
@@ -17,16 +16,6 @@ export default class TodoList extends Component {
   }
   componentDidMount() {
     console.log("componentDidMount  ", "被挂载完毕之后执行");
-    axios.get('/api/todolist')
-    .then((res) => {
-      console.log(res);
-      this.setState(() => ({
-        list: [...res.data]
-      }))
-    })
-    .catch(() => {
-      console.log('失败');
-    })
   }
   shouldComponentUpdate() {
     //shouldComponentUpdate?? 组件需要被更新吗?
