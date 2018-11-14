@@ -1,6 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './main/main';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./main/main";
+import { GlobalStyle } from "./style";
+import { GlobalStyleIcon } from "./static/iconfont/iconfont";
+const dom = (
+  <div>
+    <GlobalStyle />
+    <GlobalStyleIcon />
+    <App />
+  </div>
+);
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(dom, document.getElementById("root"));
