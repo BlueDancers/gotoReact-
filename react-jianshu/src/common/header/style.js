@@ -45,15 +45,32 @@ const NavItem = styled.div`
 `;
 
 const SearchWrapper = styled.div`
+  position: relative;
   float: left;
+
+  .iconfont {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    width: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 15px;
+    transition: all 0.5s;
+    &.focused {
+      background: #777;
+      color: #fff;
+    }
+  }
 `;
 
 const NavSearch = styled.input.attrs({
   placeholder: "搜索"
 })`
+  outline: none;
   width: 160px;
-  height: 38px;
-  padding: 0 20px;
+  height: 40px;
+  padding: 0 40px 0 20px;
   box-sizing: border-box;
   border: none;
   margin-top: 8px;
@@ -62,9 +79,63 @@ const NavSearch = styled.input.attrs({
   background: #eee;
   font-size: 14px;
   border: 1px solid #eee;
+  color: #666;
+  /* transition: all 0.5s; */
   &::placeholder {
     color: #999;
   }
+  &.focused {
+    width: 260px;
+  }
+  &.slide-enter {
+    transition: all 0.5s ease-in-out;
+  }
+  &.slide-enter-active {
+    width: 260px;
+  }
+  &.slide-exit {
+    transition: all 0.5s ease-in-out;
+  }
+  &.slide-exit-active {
+    width: 160px;
+  }
+`;
+
+const SearchInfo = styled.div`
+  position: absolute;
+  left: 0;
+  top: 58px;
+  width: 240px;
+  padding: 0 20px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+`;
+const SearchInfoTitle = styled.div`
+  margin-top: 20px;
+  margin-bottom: 15px;
+  line-height: 20px;
+  font-size: 14px;
+  color: #969696;
+`;
+
+const SearchInfoSwitch = styled.span`
+  float: right;
+  font-size: 14px;
+`;
+const SearctInfoList = styled.div`
+  overflow:hidden;
+`
+const SearchInfoItem = styled.a`
+  display: block;
+  line-height: 20px;
+  float: left;
+  padding: 0 5px;
+
+  margin-right: 10px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  border: 1px solid #ddd;
+  color: #787878;
+  border-radius: 3px;
 `;
 
 const Addition = styled.div`
@@ -98,5 +169,10 @@ export {
   NavSearch,
   Addition,
   Button,
-  SearchWrapper
+  SearchWrapper,
+  SearchInfo,
+  SearchInfoTitle,
+  SearchInfoSwitch,
+  SearchInfoItem,
+  SearctInfoList
 };

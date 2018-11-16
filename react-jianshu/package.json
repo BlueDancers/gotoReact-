@@ -3,9 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "immutable": "^4.0.0-rc.12",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
+    "react-redux": "^5.1.1",
     "react-scripts": "2.1.1",
+    "react-transition-group": "^2.5.0",
+    "redux": "^4.0.1",
     "styled-components": "^4.1.1"
   },
   "scripts": {
