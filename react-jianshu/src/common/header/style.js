@@ -48,7 +48,7 @@ const SearchWrapper = styled.div`
   position: relative;
   float: left;
 
-  .iconfont {
+  .zoom {
     position: absolute;
     right: 5px;
     bottom: 5px;
@@ -114,16 +114,25 @@ const SearchInfoTitle = styled.div`
   margin-bottom: 15px;
   line-height: 20px;
   font-size: 14px;
-  color: #969696;
+  color: #969696; 
 `;
 
 const SearchInfoSwitch = styled.span`
+  user-select: none;
+  cursor: pointer;
   float: right;
   font-size: 14px;
+  .spin {
+    display: inline-block;
+    font-size: 12px;
+    margin-right: 4px;
+    transition: all 0.2s;
+    transform-origin: center;
+  }
 `;
 const SearctInfoList = styled.div`
-  overflow:hidden;
-`
+  overflow: hidden;
+`;
 const SearchInfoItem = styled.a`
   display: block;
   line-height: 20px;
