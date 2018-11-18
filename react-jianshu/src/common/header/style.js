@@ -47,7 +47,6 @@ const NavItem = styled.div`
 const SearchWrapper = styled.div`
   position: relative;
   float: left;
-
   .zoom {
     position: absolute;
     right: 5px;
@@ -108,13 +107,14 @@ const SearchInfo = styled.div`
   width: 240px;
   padding: 0 20px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  background-color: white;
 `;
 const SearchInfoTitle = styled.div`
   margin-top: 20px;
   margin-bottom: 15px;
   line-height: 20px;
   font-size: 14px;
-  color: #969696; 
+  color: #969696;
 `;
 
 const SearchInfoSwitch = styled.span`
