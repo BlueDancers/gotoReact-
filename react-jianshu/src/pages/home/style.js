@@ -1,10 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const HomeWrapper = styled.div`
   width: 960px;
   margin: 0 auto;
   overflow: hidden;
-`;
+`
 export const HomeLeft = styled.div`
   margin-left: 15px;
   padding-top: 30px;
@@ -14,19 +14,19 @@ export const HomeLeft = styled.div`
     width: 625px;
     height: 270px;
   }
-`;
+`
 
 export const HomeRigth = styled.div`
   width: 280px;
   float: right;
-`;
+`
 
 export const TopicWrapper = styled.div`
   overflow: hidden;
   padding: 20px 0 10px 0;
   margin-left: -18px;
   border-bottom: 1px solid #dcdcdc;
-`;
+`
 export const TopicItem = styled.div`
   float: left;
   height: 32px;
@@ -45,7 +45,7 @@ export const TopicItem = styled.div`
     height: 32px;
     margin-right: 10px;
   }
-`;
+`
 
 export const ListItem = styled.div`
   padding: 20px 0;
@@ -58,7 +58,7 @@ export const ListItem = styled.div`
     height: 100px;
     border-radius: 5px;
   }
-`;
+`
 export const ListInfo = styled.div`
   width: 500px;
   float: left;
@@ -73,19 +73,19 @@ export const ListInfo = styled.div`
     line-height: 24px;
     color: #999;
   }
-`;
+`
 
 export const RecommendWrapper = styled.div`
   margin: 30px 0;
   width: 280px;
-`;
+`
 export const RecommendItem = styled.div`
   width: 280px;
   height: 50px;
   margin-bottom: 6px;
   background: url(${props => props.imgUrl});
   background-size: contain;
-`;
+`
 
 export const WriterWrapper = styled.div`
   width: 278px;
@@ -94,4 +94,27 @@ export const WriterWrapper = styled.div`
   line-height: 300px;
   text-align: center;
   border-radius: 3px;
-`;
+`
+
+export const LoadMore = styled.div`
+  width: 100%;
+  height: 40px;
+  margin: 30px 0;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 20px;
+  color: #fff;
+  background: #a5a5a5;
+  cursor: pointer;
+`
+export const BackTop = styled.div`
+  font-size: 10px;
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  border: 1px solid #ccc;
+`

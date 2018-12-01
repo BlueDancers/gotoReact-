@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { RecommendWrapper, RecommendItem } from "../style";
 import { connect } from "react-redux";
-class Recommend extends Component {
+class Recommend extends PureComponent {
   render() {
     let { imglist } = this.props;
     return (

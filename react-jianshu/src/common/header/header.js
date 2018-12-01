@@ -1,7 +1,8 @@
-import React, { Component } from "react";
-import { CSSTransition } from "react-transition-group";
-import { connect } from "react-redux";
-import { actionCreators } from "./store";
+import React, { Component } from 'react'
+import { CSSTransition } from 'react-transition-group'
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { actionCreators } from './store'
 import {
   HeaderWrapper,
   Logo,
@@ -16,20 +17,22 @@ import {
   SearchInfoSwitch,
   SearctInfoList,
   SearchInfoItem
-} from "./style";
+} from './style'
 class Header extends Component {
   constructor(props) {
-    super(props);
-    console.log("组件加载");
+    super(props)
+    console.log('组件加载')
     this.state = {
       angle: 360
-    };
+    }
   }
   render() {
-    const { focused, handInputFocus, handInputBlur, list } = this.props;
+    const { focused, handInputFocus, handInputBlur, list } = this.props
     return (
       <HeaderWrapper>
-        <Logo />
+        <Link to="/">
+          <Logo />
+        </Link>
         <Nav>
           <NavItem className="left action">首页</NavItem>
           <NavItem className="left">下载App</NavItem>
@@ -41,15 +44,15 @@ class Header extends Component {
           <SearchWrapper>
             <CSSTransition in={focused} timeout={500} classNames="slide">
               <NavSearch
-                className={focused ? "focused" : ""}
+                className={focused ? 'focused' : ''}
                 onFocus={() => {
-                  handInputFocus(list);
+                  handInputFocus(list)
                 }}
                 onBlur={handInputBlur}
               />
             </CSSTransition>
 
-            <i className={focused ? "focused iconfont zoom" : "iconfont zoom"}>
+            <i className={focused ? 'focused iconfont zoom' : 'iconfont zoom'}>
               &#xe614;
             </i>
             {this.getlistArea()}
@@ -63,7 +66,7 @@ class Header extends Component {
           <Button className="reg">注册</Button>
         </Addition>
       </HeaderWrapper>
-    );
+    )
   }
   getlistArea() {
     const {
@@ -75,9 +78,9 @@ class Header extends Component {
       handMouseEnter,
       handMouseLeave,
       handleChangPage
-    } = this.props;
-    const newList = list.toJS();
-    const pageList = [];
+    } = this.props
+    const newList = list.toJS()
+    const pageList = []
     if (focused || mouseIn) {
       // 其实位置为0
       if (newList.length) {
@@ -88,7 +91,7 @@ class Header extends Component {
         ) {
           pageList.push(
             <SearchInfoItem key={newList[i]}>{newList[i]}</SearchInfoItem>
-          );
+          )
         }
       }
 
@@ -101,7 +104,7 @@ class Header extends Component {
             >
               <i
                 ref={spin => {
-                  this.spinIcon = spin;
+                  this.spinIcon = spin
                 }}
                 className="iconfont spin"
               >
@@ -112,60 +115,60 @@ class Header extends Component {
           </SearchInfoTitle>
           <SearctInfoList>{pageList}</SearctInfoList>
         </SearchInfo>
-      );
+      )
     } else {
-      return null;
+      return null
     }
   }
 }
 const mapStateToProps = state => {
   return {
-    focused: state.header.get("focused"),
-    list: state.header.get("list"),
-    page: state.header.get("page"),
-    totalPage: state.header.get("totalPage"),
-    mouseIn: state.header.get("mouseIn")
-  };
-};
+    focused: state.header.get('focused'),
+    list: state.header.get('list'),
+    page: state.header.get('page'),
+    totalPage: state.header.get('totalPage'),
+    mouseIn: state.header.get('mouseIn')
+  }
+}
 const mapDuspatchToProps = dispatch => {
   return {
     handInputFocus(list) {
       // list有数据的情况下 不在请求数据
-      if (!list.size) dispatch(actionCreators.getList());
-      dispatch(actionCreators.openFocus());
+      if (!list.size) dispatch(actionCreators.getList())
+      dispatch(actionCreators.openFocus())
     },
     handInputBlur() {
-      dispatch(actionCreators.closeFocus());
+      dispatch(actionCreators.closeFocus())
     },
     handMouseEnter() {
-      dispatch(actionCreators.mouseEnter());
+      dispatch(actionCreators.mouseEnter())
     },
     handMouseLeave() {
-      dispatch(actionCreators.mouseLeave());
+      dispatch(actionCreators.mouseLeave())
     },
     handleChangPage(page, totalPage, spinIcon) {
-      let orginAngle = spinIcon.style.transform.replace(/[^0-9]/gi, "");
-      console.log(orginAngle);
+      let orginAngle = spinIcon.style.transform.replace(/[^0-9]/gi, '')
+      console.log(orginAngle)
 
       if (orginAngle) {
-        orginAngle = parseInt(orginAngle, 10);
+        orginAngle = parseInt(orginAngle, 10)
       } else {
-        orginAngle = 0;
+        orginAngle = 0
       }
       // 这里不需要累加 因为这不是数据 这是dom上面的正则匹配下来的数据 这里加了360 就会留存到dom上面 下次直接获取就行了
-      spinIcon.style.transform = `rotate(${orginAngle + 360}deg)`;
+      spinIcon.style.transform = `rotate(${orginAngle + 360}deg)`
       // console.log(spinIcon.style.transform);
       // orginAngle = 360 + orginAngle;
       if (page < totalPage - 1) {
-        dispatch(actionCreators.changePage(page + 1));
+        dispatch(actionCreators.changePage(page + 1))
       } else {
-        dispatch(actionCreators.changePage(0));
+        dispatch(actionCreators.changePage(0))
       }
     }
-  };
-};
+  }
+}
 
 export default connect(
   mapStateToProps,
   mapDuspatchToProps
-)(Header);
+)(Header)

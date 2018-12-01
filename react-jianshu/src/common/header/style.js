@@ -7,9 +7,7 @@ const HeaderWrapper = styled.div`
   position: relative;
 `;
 
-const Logo = styled.a.attrs({
-  href: "/"
-})`
+const Logo = styled.div`
   height: 58px;
   position: absolute;
   top: 0;
