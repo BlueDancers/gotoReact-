@@ -3,6 +3,7 @@ import { CSSTransition } from 'react-transition-group'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { actionCreators } from './store'
+import { actionCreators as loginActionCreators } from '../../pages/login/store'
 import {
   HeaderWrapper,
   Logo,
@@ -27,7 +28,14 @@ class Header extends Component {
     }
   }
   render() {
-    const { focused, handInputFocus, handInputBlur, list } = this.props
+    const {
+      focused,
+      handInputFocus,
+      handInputBlur,
+      list,
+      login,
+      logout
+    } = this.props
     return (
       <HeaderWrapper>
         <Link to="/">
@@ -36,7 +44,15 @@ class Header extends Component {
         <Nav>
           <NavItem className="left action">首页</NavItem>
           <NavItem className="left">下载App</NavItem>
-          <NavItem className="right">登录</NavItem>
+          {login ? (
+            <NavItem className="right" onClick={logout}>
+              退出
+            </NavItem>
+          ) : (
+            <Link to="/login">
+              <NavItem className="right">登录</NavItem>
+            </Link>
+          )}
           <NavItem className="right">
             <i className="iconfont">&#xe636;</i>
           </NavItem>
@@ -60,10 +76,12 @@ class Header extends Component {
         </Nav>
 
         <Addition>
-          <Button className="writting">
-            <i className="iconfont">&#xe624;</i>写文章
-          </Button>
-          <Button className="reg">注册</Button>
+          <Link to="/write">
+            <Button className="writting">
+              <i className="iconfont">&#xe624;</i>写文章
+            </Button>
+          </Link>
+          {login ? '' : <Button className="reg">注册</Button>}
         </Addition>
       </HeaderWrapper>
     )
@@ -127,7 +145,8 @@ const mapStateToProps = state => {
     list: state.header.get('list'),
     page: state.header.get('page'),
     totalPage: state.header.get('totalPage'),
-    mouseIn: state.header.get('mouseIn')
+    mouseIn: state.header.get('mouseIn'),
+    login: state.login.get('login')
   }
 }
 const mapDuspatchToProps = dispatch => {
@@ -164,6 +183,10 @@ const mapDuspatchToProps = dispatch => {
       } else {
         dispatch(actionCreators.changePage(0))
       }
+    },
+    logout() {
+      // 虽然这里的 dispatch 在header组件里面 但是派发的action是全局action可以接收到的 所以后面的对login的操作在login里面写就行了
+      dispatch(loginActionCreators.logout())
     }
   }
 }

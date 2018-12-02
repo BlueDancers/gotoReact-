@@ -43,6 +43,7 @@ const NavItem = styled.div`
 `;
 
 const SearchWrapper = styled.div`
+  z-index: 1;
   position: relative;
   float: left;
   .zoom {

@@ -66,7 +66,7 @@ const mapDispatch = dispatch => {
     },
     changeScrollTopShow() {
       //document.documentElement.scrollTop 获取记录屏幕最上方距离的事件
-      console.log(document.documentElement.scrollTop)
+      // console.log(document.documentElement.scrollTop)
       let scrollTop = document.documentElement.scrollTop
       if (scrollTop > 600) {
         // 显示

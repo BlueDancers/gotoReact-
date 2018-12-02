@@ -30,7 +30,6 @@ export default (state = defaultState, action) => {
     case actionTypes.GET_MORE_LIST:
       return getMoreList(state,action)
     case actionTypes.TOGGLE_SHOWSCROLL:
-      console.log(action.data)
       return state.set('showScroll', action.data)
     default:
       return state
