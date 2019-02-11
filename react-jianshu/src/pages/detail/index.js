@@ -25,17 +25,17 @@ class Detail extends Component {
   }
 }
 
-const mapState = state => ({
-  title: state.detail.get('title'),
-  content: state.detail.get('content')
-})
-const mapDispatch = dispatch => ({
-  getDetail(id) {
-    dispatch(actionCreators.getDetail(id))
-  }
-})
+  const mapState = state => ({
+    title: state.detail.get('title'), //  immutable数据 获取state树中的detail分支下的title
+    content: state.detail.get('content')
+  })
+  const mapDispatch = dispatch => ({
+    getDetail(id) { // 视图中触发该方法 方法内部触发dispatch 获取由actionCreators生成的action,交给reducer
+      dispatch(actionCreators.getDetail(id))
+    }
+  })
 
-export default connect(
-  mapState,
-  mapDispatch
-)(withRouter(Detail))
+  export default connect(
+    mapState,
+    mapDispatch
+  )(withRouter(Detail))
