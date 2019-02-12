@@ -34,7 +34,11 @@ const PriceList = ({ items, onModifyItem, onDeleteItem }) => {
             <Icon
               className="rounded-circle"
               fontSize="30px"
-              style={{ backgroundColor: '#28a745', padding: '5px' }}
+              style={{
+                backgroundColor: '#28a745',
+                padding: '5px',
+                cursor: 'pointer'
+              }}
               color={'#fff'}
               icon="ios-create-outline"
             />
@@ -48,7 +52,11 @@ const PriceList = ({ items, onModifyItem, onDeleteItem }) => {
             <Icon
               className="rounded-circle"
               fontSize="30px"
-              style={{ backgroundColor: '#dc3545', padding: '5px' }}
+              style={{
+                backgroundColor: '#dc3545',
+                padding: '5px',
+                cursor: 'pointer'
+              }}
               color={'#fff'}
               icon="ios-close"
             />

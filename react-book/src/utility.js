@@ -1,5 +1,8 @@
 export const List_View = 'list'
 export const Chart_View = 'chart'
+export const TotalOutcome = 'outcome'
+export const TotalIncome = 'income'
+
 
 export const padLeft = n => {
   if (n >= 10) {
