@@ -1,8 +1,17 @@
-import { observable } from 'mobx';
-class Store {
-  @observable cache = { queue: [] };
+import { observable as obser, action } from 'mobx';
+
+class Todo {
+  id = Math.random();
+  @obser title = '';
+  @obser finished = false;
+  constructor(title) {
+    this.title = title;
+  }
 }
 
-const store = new Store();
+class TodoList {
+  @obser todo = [1];
+}
 
-export default store;
+const todolist = new TodoList();
+export default todolist;
