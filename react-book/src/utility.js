@@ -14,7 +14,7 @@ export const padLeft = n => {
 /**
  * 
  * @param {number} size 总位数 
- * @param {number} startAt 相对 starrAt的初始数
+ * @param {number} startAt相对starrAt的初始数
  */
 export const range = (size, startAt = 0) => {
   var rangeList = []

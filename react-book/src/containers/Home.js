@@ -7,6 +7,33 @@ import TotalPrice from '../components/TotalPrice'
 import MonthPicker from '../components/MonthPicker'
 import { List_View, Chart_View, TotalIncome, TotalOutcome,padLeft } from '../utility'
 
+export const priceList = [
+  {
+    id: 1,
+    title: '云南旅游',
+    date: '2018-09-10',
+    price: 400,
+    category: {
+      id: 1,
+      name: '旅行',
+      type: 'outcome',
+      iconName: 'ios-plane'
+    }
+  },
+  {
+    id: 2,
+    title: '朋友吃饭',
+    date: '2018-09-11',
+    price: 1000,
+    category: {
+      id: 2,
+      name: '吃饭',
+      type: 'outcome',
+      iconName: 'ios-plane'
+    }
+  }
+]
+
 class App extends Component {
   constructor(props) {
     super(props)
@@ -14,32 +41,7 @@ class App extends Component {
       TabView: List_View, // 初始tab
       selectYear: new Date().getFullYear(),
       selectMonth: new Date().getMonth() + 1,
-      priceList: [
-        {
-          id: 1,
-          title: '云南旅游',
-          date: '2018-09-10',
-          price: 400,
-          category: {
-            id: 1,
-            name: '旅行',
-            type: 'outcome',
-            iconName: 'ios-plane'
-          }
-        },
-        {
-          id: 2,
-          title: '朋友吃饭',
-          date: '2018-09-11',
-          price: 1000,
-          category: {
-            id: 2,
-            name: '吃饭',
-            type: 'outcome',
-            iconName: 'ios-plane'
-          }
-        }
-      ]
+      priceList
     }
   }
   render() {
