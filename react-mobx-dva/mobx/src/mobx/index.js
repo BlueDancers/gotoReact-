@@ -1,4 +1,4 @@
-import { observable as obser, action } from 'mobx';
+import { observable as obser, action, computed } from 'mobx';
 
 class Todo {
   id = Math.random();
@@ -10,8 +10,16 @@ class Todo {
 }
 
 class TodoList {
-  @obser todo = [1];
+  // 监听元素
+  @obser todo = [];
+  @action.bound createTodo(title) {
+    // 遍历方法
+    this.todo.unshift(new Todo(title));
+  }
+  @computed get left() {
+    // 计算属性
+    return this.todo.filter(i => !this.todo.finished).length;
+  }
 }
 
-const todolist = new TodoList();
-export default todolist;
+export default new TodoList();
