@@ -19,6 +19,8 @@ class App extends Component {
           <Todototal />
           <div>
             {todo.todo.map(e => (
+              // 需要明白一点那就是数据发生变化的时候,render函数一定会重新渲染的
+              // 但是我们可以控制render函数渲染的地方,也就是说,将render函数渲染的部分组件化可以减小重新渲染的性能损耗
               <div className="todo_item_con" key={e.id}>
                 <TodoItem item={e} />
                 <span
