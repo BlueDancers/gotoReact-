@@ -11,3 +11,48 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.todo_list {
+  margin: 15px;
+}
+
+.todo_list_text {
+  padding: 15px;
+  border: 1px solid #ccc;
+  width: 400px;
+  line-height: 24px;
+}
+
+.todo_item_con {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 430px;
+  border-bottom: 1px solid #ccc;
+}
+
+.todo_item {
+  display: flex;
+  align-items: center;
+  height: 40px;
+}
+
+.todo_item .toggle {
+  margin: 0px;
+  padding: 0px;
+  margin-right: 20px;
+}
+
+.todo_item .title {
+  font-size: 24px;
+  color: #000;
+}
+
+.title {
+  font-size: 10px;
+}
+
+.finished {
+  text-decoration: line-through;
+  color: #ccc;
+}

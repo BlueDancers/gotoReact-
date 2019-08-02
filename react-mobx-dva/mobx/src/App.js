@@ -1,37 +1,32 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
+import { trace } from 'mobx';
+import Todoheader from './components/Todoheader';
+import Todototal from './components/Todototal';
 import TodoItem from './components/todoItem';
 // import propTypes from 'prop-types';
 
-@inject('todo')
+@inject(todo => todo)
 @observer
 class App extends Component {
-  // static propTypes = {};
-  constructor() {
-    super();
-    this.state = {
-      inputValue: ''
-    };
-  }
   render() {
+    trace();
     const { todo } = this.props;
-    const { inputValue } = this.state;
     return (
       <div className="todo_list">
-        <div className="header">
-          <input
-            value={inputValue}
-            onChange={this.handchange}
-            onKeyDown={this.submit}
-            type="text"
-          />
-        </div>
+        <Todoheader />
         <div className="main">
-          <div>当前未完成的数量为 {todo.left}</div>
+          <Todototal />
           <div>
             {todo.todo.map(e => (
-              <div key={e.id}>
-                <TodoItem todo={e} />
+              <div className="todo_item_con" key={e.id}>
+                <TodoItem item={e} />
+                <span
+                  className="delete"
+                  onClick={todo.deleteTodo.bind(this, e.id)}
+                >
+                  删除
+                </span>
               </div>
             ))}
           </div>
@@ -40,15 +35,5 @@ class App extends Component {
       </div>
     );
   }
-  submit = e => {
-    if (e.keyCode === 13) {
-      this.props.todo.createTodo(this.state.inputValue);
-      this.setState({ inputValue: '' });
-    }
-  };
-  handchange = e => {
-    var inputValue = e.target.value;
-    this.setState({ inputValue });
-  };
 }
 export default App;
