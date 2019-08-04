@@ -6,6 +6,12 @@
 
 
 
+[react-mobx-dva/mobx](https://github.com/vkcyan/gotoReact-/tree/master/react-mobx-dva/mobx)为慕课网的[mobx入门基础教程](https://www.imooc.com/learn/1012)
+
+mobx真的挺不错的,比redux简约很多,非常适合中小型项目,但是网上目前没什么比较好的教程,这个算是比较好的选择了
+
+
+
 [react-jianshu](https://github.com/vkcyan/gotoReact-/tree/master/react-jianshu) 为慕课网的[React 16.4 开发简书项目 从零基础入门到实战](https://coding.imooc.com/class/229.html)
 
 
@@ -18,7 +24,7 @@
 
 
 
-[我的简历](https://github.com/vkcyan/homePage) Vue单页应用,打造最炫酷的前端开发者简历,有了它找工作不用愁啦,欢迎查看[www.vkcyan.top](www.vkcyan.top)
+[我的简历](https://github.com/vkcyan/homePage) Vue单页应用,打造最炫酷的前端开发者简历,有了它找工作不用愁啦,欢迎查看[https://vkcyan.github.io/homePage/](https://vkcyan.github.io/homePage/)
 
 
 
@@ -30,20 +36,6 @@
 
 
 
-[文档存放区](https://github.com/vkcyan/text) 对js的研究,日常工作里面的坑 以及解决办法还有docker node linux 等等相关总结,是作者开发学习的宝贵经验
-
-![5zeS9O.png](https://s1.ax2x.com/2018/11/17/5zeS9O.png)
-
-![5zefOq.png](https://s1.ax2x.com/2018/11/17/5zefOq.png)
+[文档存放区](https://github.com/vkcyan/text) 对js,vue,react,react native等等的研究,以及日常工作里面的坑 解决办法还有docker node linux 等等相关总结,是作者开发学习的宝贵经验
 
 
-
-
-
-还有很多实践项目 
-
-**Vue+koa2+mongoDB** 的全栈项目 [vue+koa2+jwt实现单点登录 + todolist增删改查](https://github.com/vkcyan/login_push),最好的全栈入门项目
-
-慕课网蜗牛老师的`蜗牛读书`[小程序mpvue的项目](https://github.com/vkcyan/wl-mpvue),推荐,也算全栈项目
-
-欢迎探索
